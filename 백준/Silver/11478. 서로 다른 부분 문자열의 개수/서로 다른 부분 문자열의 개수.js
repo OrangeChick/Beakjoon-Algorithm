@@ -1,0 +1,13 @@
+const input = require("fs")
+  .readFileSync(process.platform === "linux" ? "/dev/stdin" : "./input.txt")
+  .toString()
+  .trim();
+
+const answer = new Set();
+for(let i = 0; i < input.length; i++){
+    for(let j = i + 1; j <= input.length; j++){
+        answer.add(input.slice(i,j))
+    }
+}
+
+console.log(answer.size);
